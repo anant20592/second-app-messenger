@@ -18,7 +18,7 @@ const
   
       // Iterate over each entry - there may be multiple if batched
       body.entry.forEach(function(entry) {
-
+        if(!entry.standby){
         // Gets the body of the webhook event
   let webhook_event = entry.messaging[0];
   console.log(webhook_event);
@@ -35,7 +35,7 @@ const
   } else if (webhook_event.postback) {
     handlePostback(sender_psid, webhook_event.postback);
   }
-      
+}
       });
       
   
